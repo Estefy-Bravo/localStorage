@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo de Productos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Catálogo de Productos</h1>
+    </header>
+    <main>
+        <div class="botones">
+            <button onclick="mostrarFormulario('formAgregar')">Agregar Producto</button>
+            <button onclick="listarProductos()">Listar Productos</button>
+            <button onclick="mostrarFormulario('formBuscar')">Buscar por Categoría</button>
+            <button onclick="mostrarFormulario('formActualizar')">Actualizar Stock</button>
+            <button onclick="mostrarFormulario('formEliminar')">Eliminar Producto</button>
+            <button onclick="calcularValorTotalInventario()">Calcular Valor Total del Inventario</button>
+        </div>
+
+        <div id="formularios">
+            <form id="formAgregar" onsubmit="procesarFormularioAgregar(event)" style="display:none;">
+                <h2>Agregar Producto</h2>
+                <label>Nombre: <input type="text" id="nombre"></label><br>
+                <label>Precio: <input type="number" id="precio"></label><br>
+                <label>Stock: <input type="number" id="stock"></label><br>
+                <label>Categoría: <input type="text" id="categoria"></label><br>
+                <button type="submit">Agregar</button>
+            </form>
+
+            <form id="formBuscar" onsubmit="procesarFormularioBuscar(event)" style="display:none;">
+                <h2>Buscar por Categoría</h2>
+                <label>Categoría: <input type="text" id="categoriaBuscar"></label><br>
+                <button type="submit">Buscar</button>
+            </form>
+
+            <form id="formActualizar" onsubmit="procesarFormularioActualizar(event)" style="display:none;">
+                <h2>Actualizar Stock</h2>
+                <label>Nombre: <input type="text" id="nombreActualizar"></label><br>
+                <label>Nuevo Stock: <input type="number" id="nuevoStock"></label><br>
+                <button type="submit">Actualizar</button>
+            </form>
+
+            <form id="formEliminar" onsubmit="procesarFormularioEliminar(event)" style="display:none;">
+                <h2>Eliminar Producto</h2>
+                <label>Nombre: <input type="text" id="nombreEliminar"></label><br>
+                <button type="submit">Eliminar</button>
+            </form>
+        </div>
+
+        <table id="tablaProductos">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Precio</th>
+                    <th>Stock</th>
+                    <th>Categoría</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </main>
+    <script src="catalogo.js"></script>
+</body>
+</html>
